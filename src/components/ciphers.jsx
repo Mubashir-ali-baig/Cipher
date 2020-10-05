@@ -18,6 +18,9 @@ class Cipher extends React.Component{
             shiftKey:event.target.value
         })
     }
+    
+    // ****************** VIGENERE CIPHER ENCRYPTION **************** //
+    
     plainToCipher=(event)=>{
         let plainText=event.target.value;
         plainText=plainText.toUpperCase()
@@ -42,6 +45,10 @@ class Cipher extends React.Component{
         })
         
     }
+    
+     // ****************** VIGENERE DECIPHER ENCRYPTION **************** //
+    
+    
     cipherToPlain=(event)=>{
        let cipherText=event.target.value;
        cipherText=cipherText.toUpperCase()
@@ -67,6 +74,9 @@ class Cipher extends React.Component{
         })
     }
 
+ // ****************** SHIFT CIPHER ENCRYPTION **************** //
+    
+
     plainToShiftCipher=(event)=>{
         let plainText=event.target.value;
         plainText=plainText.toUpperCase()
@@ -83,6 +93,9 @@ class Cipher extends React.Component{
             plainText:answerCharCode
         })
     }
+
+ // ****************** SHIFT DECIPHER ENCRYPTION **************** //
+    
 
     shiftCipherToPlain=(event)=>{
         let cipherText=event.target.value;
@@ -108,6 +121,8 @@ class Cipher extends React.Component{
             selectedMode:selectedMode
         })
       
+    // ****************** SUBSTITUTION CIPHER ENCRYPTION **************** //
+    
          
     }
     substitutionCipher=(event)=>{
@@ -136,6 +151,8 @@ class Cipher extends React.Component{
         })
     }
 
+     // ****************** SUBSTITUTION DECIPHER ENCRYPTION **************** //
+    
     substitutionDecipher=(event)=>{
         var Plain={};
         let cipherText=event.target.value;
@@ -239,6 +256,68 @@ class Cipher extends React.Component{
             )
         }
         else if(selectedOption==="Substitution"){
+            return(
+                <div>
+            <form>
+            <label className="radio-inline">
+                Encrypt: <input 
+                type="radio" 
+                value="plaintext" 
+                checked={this.state.selectedMode==="plaintext"}
+                onChange={this.handleSelectMode}  
+                />
+            </label>
+            <label className="radio-inline">
+                Decrypt: <input 
+                type="radio" 
+                value="ciphertext" 
+                checked={this.state.selectedMode==="ciphertext"}
+                onChange={this.handleSelectMode}  
+                />
+            </label>
+            </form>
+                <div>
+                <input type="text" placeholder={`Enter your ${this.state.selectedMode}`} onChange={this.state.selectedMode==='plaintext'?this.substitutionCipher:this.substitutionDecipher}/>
+            
+            
+                </div>
+                </div>
+                
+            )
+
+        }
+        else if(selectedOption==="Playfair"){
+            return(
+                <div>
+            <form>
+            <label className="radio-inline">
+                Encrypt: <input 
+                type="radio" 
+                value="plaintext" 
+                checked={this.state.selectedMode==="plaintext"}
+                onChange={this.handleSelectMode}  
+                />
+            </label>
+            <label className="radio-inline">
+                Decrypt: <input 
+                type="radio" 
+                value="ciphertext" 
+                checked={this.state.selectedMode==="ciphertext"}
+                onChange={this.handleSelectMode}  
+                />
+            </label>
+            </form>
+                <div>
+                <input type="text" placeholder={`Enter your ${this.state.selectedMode}`} onChange={this.state.selectedMode==='plaintext'?this.substitutionCipher:this.substitutionDecipher}/>
+            
+            
+                </div>
+                </div>
+                
+            )
+
+        }
+        else if(selectedOption==="Railfence"){
             return(
                 <div>
             <form>
